@@ -17,10 +17,7 @@
 package websocket.chat;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -53,14 +50,6 @@ public class ChatAnnotation {
         nickname = GUEST_PREFIX + connectionIds.getAndIncrement();
     }
 
-    public static void timer() {
-        Timer timer = new Timer();
-          timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                broadcast(new Date().toString());
-            }
-        }, 0, 2000);
-    }
 
     @OnOpen
     public void start(Session session) {
@@ -68,7 +57,6 @@ public class ChatAnnotation {
         connections.add(this);
         String message = String.format("* %s %s", nickname, "has joined.");
         broadcast(message);
-        timer();
     }
 
 

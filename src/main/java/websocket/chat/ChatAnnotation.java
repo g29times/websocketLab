@@ -55,19 +55,11 @@ public class ChatAnnotation {
 
     public static void timer() {
         Timer timer = new Timer();
-        String data = "data";
-        Date date = new Date();
-        timer.scheduleAtFixedRate(new TimerTask() {
+          timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                broadcast(date.toString());
+                broadcast(new Date().toString());
             }
         }, 0, 2000);
-    }
-
-    public static void main(String[] args) {
-
-        Date date = new Date();
-        System.out.println(date);
     }
 
     @OnOpen
@@ -96,6 +88,8 @@ public class ChatAnnotation {
                 nickname, HTMLFilter.filter(message.toString()));
         broadcast(filteredMessage);
     }
+
+
 
 
     @OnError

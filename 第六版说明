@@ -1,0 +1,8 @@
+第六版解决核心问题
+1 脱离maven 原始部署
+2 web目录 out目录 arti prod目录关系
+    1 编译本地java文件 生成prod目录
+    2 部署到tomcat时 以web > prod的寻源优先级 将class文件导入arti中的classes目录
+    3 此处注意的问题 如果web目录中有class文件 要注意其时效性 因为从不更新 本地都更新到prod
+    4 若要保证时效性 可以删除web目录中的class文件
+3 代码更新 服务器先update resources 后reload 有时reload会导致宕机

@@ -58,6 +58,7 @@ public class ChatAnnotation implements Runnable {
 
     /*********************************************/
 
+    // Ä£ÄâAgentGet
     private ExcelWorkLoad workLoad;
     private AgentSet agentSet;
 

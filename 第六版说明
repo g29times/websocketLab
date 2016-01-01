@@ -6,3 +6,4 @@
     3 此处注意的问题 如果web目录中有class文件 要注意其时效性 因为从不更新 本地都更新到prod
     4 若要保证时效性 可以删除web目录中的class文件
 3 代码更新 服务器先update resources 后reload 有时reload会导致宕机
+4 增加后台管理html功能

@@ -118,6 +118,15 @@
     <!-- Define servlets that are included in the example application -->
 
     <servlet>
+        <servlet-name>PageServlet</servlet-name>
+        <servlet-class>work.test.PageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageServlet</servlet-name>
+        <url-pattern>/PageServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
       <servlet-name>ServletToJsp</servlet-name>
       <servlet-class>ServletToJsp</servlet-class>
     </servlet>

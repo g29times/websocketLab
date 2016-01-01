@@ -1,0 +1,4 @@
+1 ajax http响应 success complete 返回对象亦不同
+2 对象传输问题 ajax无法直接发送js对象 必须经JSON.stringify处理
+3 字符串传输过程中的空格、换行符等导致的异常
+4 文字超长导致的问题

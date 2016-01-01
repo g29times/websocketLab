@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Page Editor</title>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="article_resource/js/common.js"></script>
+    <style>
+        #centers .c_left { float:left; width:400px; border:1px solid #00CC66; background:#F7F7F7; margin-right:5px; }
+        #centers .c_right{ float:left; width:800px; border:1px solid #00CC66; background:#F7F7F7}
+
+        body, div, address, blockquote, iframe, ul, ol, dl, dt, dd, li, dl, h1, h2, h3, h4, h5, h6, p, pre, table, caption, th, td, form, legend, fieldset, input, button, select, textarea
+        {margin:0; padding:0; font-weight: normal; font-style: normal; font-size: 100%; font-family: inherit;}
+        body {color:#000; background:#FFF; /*text-align: center;*/ font: 16px/1.5 Arial, Helvetica, sans-serif;}
+    </style>
+</head>
+<body>
+<div id="centers">
+
+    <div class="c_left">
+        <h1>Single Page Editor</h1>
+
+        <form>
+            PAGE
+            <select id="pageId">
+                <option>---</option>
+            </select>
+            PLUG-IN
+            <select id="plugInId" multiple="multiple">
+                <option>---</option>
+            </select>
+            <br/>
+
+            <input id="pageName" placeholder="page" type="text"/>
+            <input type="date"/><br/>
+            <input type="range"/>
+            <input type="search" value="shoe"/><br/>
+            <input type="number"/>
+            <input type="color"/><br/>
+            <input type="file"/><br/>
+            <input type="time"/>
+            CHECK<input type="checkbox"/>
+            <br/>
+
+            <!--<input type="radio" name="Area" value="TITLE"/>TITLE-->
+            <!--<input type="radio" name="Area" value="BODY"/>BODY-->
+            <!--<input type="radio" name="Area" value="INFO"/>INFO-->
+            <br/>
+
+            TITLE<textarea id="ta_title"></textarea><br/>
+            BODY <textarea id="ta_body"></textarea><br/>
+            INFO <textarea id="ta_info"></textarea>
+            <br/>
+
+            <input type="radio" name="Operation" value="PREVIEW"/>PREVIEW
+            <input type="radio" name="Operation" value="EXECUTE"/>EXECUTE
+            <br/>
+
+            <!--<a id="toPage" href="#" target="_blank"></a>-->
+                <input type="button" value="ADD" />
+                <input type="button" value="EDIT" />
+                <input type="button" value="DELETE" />
+
+
+        </form>
+    </div>
+    <div class="c_right">
+        <h1>Preview Window</h1>
+        <iframe name="main" width="100%" height="500" frameborder="0" border="0"
+                marginwidth="0" marginheight="0" scrolling="yes"
+                src="article_resource/64/64.html"></iframe>
+    </div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        dyGenerate(null, "article_resource/data/article_list.json", article_list);
+        dyGenerate(null, "article_resource/data/plugIn_list.json", plugIn_list);
+    });
+
+    function article_list(ids) {
+        for(var pageId in ids)
+            $("#pageId").append("<option value='"+pageId+"'>"+ids[pageId]+"</option>");
+    }
+    function plugIn_list(ids) {
+        $("#plugInId").empty();
+        for(var plugInId in ids)
+            $("#plugInId").append("<option value='"+ids[plugInId]+"'>"+plugInId+"</option>");
+    }
+
+    $("#pageId").change(function () {
+        $("#pageName").val($("#pageId").find("option:selected").text());
+        $( "#toPage" ).attr("href", "article_resource/" + $( "#pageName").val() + "/" + $( "#pageName").val() + ".html");
+    });
+    $("input[type='button']").click(function () {
+        var chosePlugin = $("#plugInId").val();
+        var json_data = JSON.stringify(chosePlugin);
+        // $("#plugInId").val() $("#plugInId").find("option:selected").text()
+
+        // this表示当前被点击元素，但是此时我们当做dom对象
+        // window.alert(this.innerHTML|value);
+        // $(this)表示当前被点击元素，但是此时我们当做jquery对象
+        var method = $(this).val();
+        console.log(method);
+        if(method != "EDIT")
+        $.ajax({
+            url: "/6th_WS/PageServlet",
+            type: "POST",
+            data: {
+                setPlugin: json_data,
+                title: document.getElementById("ta_title").value,
+                body: document.getElementById("ta_body").value,
+                info: document.getElementById("ta_info").value,
+                area: $("input[name='Area']:checked").val(),
+                method: method
+            },
+            complete: function (XMLHttpRequest) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                // logger.log ...
+                $("iframe").attr("src", "article_resource/" + $( "#pageName").val() + "/" + $( "#pageName").val() + ".html");
+            },
+        });
+        else
+            $.ajax({
+                url: "/6th_WS/PageServlet",
+                type: "GET",
+                success: function (html) {
+                    console.log(html);
+                    var title, body, info;
+                    title = document.getElementById("ta_title");
+                    body = document.getElementById("ta_body");
+                    //info =
+                    title.value = html.title;
+                    body.value = html.body;
+                }
+            });
+    });
+
+    // 示例: 原生HTML提报方法
+    function submit() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        console.log(xmlhttp.readyState);
+        xmlhttp.open("POST", "/6th_WS/PageServlet", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("content=" + document.getElementById("ta_1").value/*{"content":"test"}*/);
+        console.log(xmlhttp.readyState); // java 状态无法回归 待解决
+        console.log("new content = " + xmlhttp.responseText);
+    }
+
+    /**
+     * 请求参数
+     *  http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp
+     *  http://blog.csdn.net/mhmyqn/article/details/25561535
+     *  http://www.tuicool.com/articles/eiauAb
+     *
+     * 页面跳转
+     *  http://blog.sina.com.cn/s/blog_5c5bc9070100zhsn.html
+     *  http://blog.csdn.net/ssy_shandong/article/details/9328985
+     *
+     * HTTP缓存 状态码 http_content_type
+     *  http://my.oschina.net/u/2428791/blog/506220
+     *  http://tools.jb51.net/table/http_content_type
+     *
+     * Servlet后端实现
+     *  http://howtodoinjava.com/2014/12/08/complete-java-servlets-tutorial/#servlet_life_cycle_methods
+     *
+     * jQuery API
+     *  http://hemin.cn/jq/text.html
+     *  http://www.cnblogs.com/haogj/archive/2013/01/15/2861950.html
+     *  http://www.jb51.net/article/21628.htm
+     *
+     * Ajax
+     *  http://www.w3school.com.cn/jquery/ajax_ajax.asp
+     *  http://www.w3dev.cn/article/20141031/file-protocol-config-chrome-support-ajax-request.aspx
+     *  http://www.tuicool.com/articles/BJFbQfe
+     *  http://blog.sina.com.cn/s/blog_4adc4b090101dhnh.html
+     *
+     * 安全
+     *  google
+     *
+     * CSS
+     *  http://www.divcss5.com/rumen/r1.shtml
+     *
+     * HTML元素操作
+     *  Select option 的操作
+     *      http://www.w3school.com.cn/tags/tag_select.asp
+     *      http://www.cnblogs.com/zihan1120/archive/2013/04/23/3039099.html
+     *      http://www.cnblogs.com/gengaixue/archive/2011/07/28/2119040.html
+     *
+     * iframe之局部刷新
+     *  http://www.cnblogs.com/fanyf/p/3651523.html
+     *  http://www.cnblogs.com/fanyf/p/3651527.html
+     */
+</script>
+</body>
+</html>

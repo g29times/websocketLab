@@ -79,12 +79,12 @@
     </filter>
 
     <!-- Define filter mappings for the timing filters -->
-    <!--
+
     <filter-mapping>
         <filter-name>Timing Filter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    -->
+    <!---->
 
 <!-- Example filter mapping to apply the "Set Character Encoding" filter
      to *all* requests processed by this web application -->
@@ -93,19 +93,19 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-<!--
+
     <filter-mapping>
       <filter-name>Compression Filter</filter-name>
       <url-pattern>/CompressionTest</url-pattern>
     </filter-mapping>
--->
+    <!---->
 
-<!--
+
     <filter-mapping>
         <filter-name>Request Dumper Filter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
--->
+    <!---->
 
     <!-- Define example application events listeners -->
     <listener>
@@ -116,7 +116,32 @@
     </listener>
 
     <!-- Define servlets that are included in the example application -->
-
+    <servlet>
+        <servlet-name>MyFirstServlet</servlet-name>
+        <servlet-class>work.servlet.MyFirstServlet</servlet-class>
+        <!-- Servlet init param -->
+        <init-param>
+            <param-name>redirectURL</param-name>
+            <param-value>http://www.baidu.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>NextServlet</servlet-name>
+        <servlet-class>work.servlet.NextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NextServlet</servlet-name>
+        <url-pattern>/NextServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>work.servlet.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RedirectServlet</servlet-name>
+        <url-pattern>/RedirectServlet</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
       <servlet-name>ServletToJsp</servlet-name>
       <servlet-class>ServletToJsp</servlet-class>
@@ -154,6 +179,10 @@
         <servlet-class>SessionExample</servlet-class>
     </servlet>
 
+    <servlet-mapping>
+        <servlet-name>MyFirstServlet</servlet-name>
+        <url-pattern>/MyFirstServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ChatServlet</servlet-name>
         <url-pattern>/servlets/chat/chat</url-pattern>

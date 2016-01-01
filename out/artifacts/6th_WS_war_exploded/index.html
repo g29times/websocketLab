@@ -26,5 +26,18 @@
 <li><a href="servlets">Servlets examples</a></li>
 <li><a href="jsp">JSP Examples</a></li>
 <li><a href="websocket/index.xhtml">WebSocket Examples</a></li>
+  <li><p onclick="myServlet()">MyServlet</p></li>
 </ul>
+<script type="application/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="application/javascript">
+  function myServlet() {
+    $.ajax({
+      url: "/6th_WS/MyFirstServlet",
+      type: "POST",
+      success: function(){
+        console.log("done");
+      }
+    });
+  }
+</script>
 </body></html>

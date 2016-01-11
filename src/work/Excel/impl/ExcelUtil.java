@@ -8,6 +8,7 @@ import java.util.Map;
 
 /**
  * Excel 处理逻辑 实现类
+ * http://www.yeetrack.com/?p=961
  * Created by Excuse on 2016/1/11.
  */
 public class ExcelUtil extends AbsFunction {

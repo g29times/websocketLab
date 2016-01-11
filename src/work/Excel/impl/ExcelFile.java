@@ -39,17 +39,6 @@ public class ExcelFile extends AbsExcelFile {
         return this.fileName;
     }
 
-//    @Override
-//    public void setInfo(Object info) {
-//        Map
-//    }
-//
-//    @Override
-//    public <T> int getInfo() {
-//        return 1;
-//    }
-
-
     @Override
     public Map getInfo() {
         Map infoMap = new HashMap<>();

@@ -1,15 +1,8 @@
 package work.Excel.impl;
 
-import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.junit.Test;
 import work.Excel.api.Excel;
-import work.Excel.api.ExcelAPI;
 import work.Excel.api.Function;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,17 +10,18 @@ import java.util.Map;
  * Excel 处理逻辑 实现类
  * Created by Excuse on 2016/1/11.
  */
-public class ExcelUtil implements ExcelAPI {
+public class ExcelUtil extends AbsFunction {
 
     @Test
     public void testImport() {
         Excel source = createExcel();
-
+        // 业务信息
         Map infoMap = new HashMap<>();
         infoMap.put("startNum", "2");
         source.setInfo(infoMap);
 
-        importExcel(source, new Function() {
+        // 形似ajax
+        importExcel(source, new AbsFunction() {
             @Override
             public int getStart(Excel source) {
                 Map info = source.getInfo();
@@ -38,6 +32,23 @@ public class ExcelUtil implements ExcelAPI {
             public Excel getSource() {
                 return source;
             }
+
+            /*
+            *
+            * Map a bean
+            * [attr : col] abc.properties
+             * name : colName
+             * id   : colId
+             * ...
+             *
+             * key : id + name
+             * if a row contains a key, then serialize it. else log this as a bad record by row number.
+             *
+             * save a bean
+             * bean.setPro()
+             * bean.save()
+             *
+            * */
         });
     }
 
@@ -67,80 +78,4 @@ public class ExcelUtil implements ExcelAPI {
         return null;
     }
 
-    private HSSFSheet getContent(Excel source) {
-        File file = source == null ? new File(Excel.DEMO_FILE_PATH) : source.getExcel();
-        if(file == null)
-            return null;
-        POIFSFileSystem poifsFileSystem;
-        HSSFWorkbook hssfWorkbook;
-        try {
-            poifsFileSystem = new POIFSFileSystem(new FileInputStream(file));
-            hssfWorkbook = new HSSFWorkbook(poifsFileSystem);
-        } catch (Exception e) {
-            return null;
-        }
-        HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(0);
-        return hssfSheet;
-    }
-
-    private Object readContent(HSSFSheet hssfSheet, Function process) {
-        if(hssfSheet == null)
-            return STATUS_FAILED;
-        // TODO process.do()
-        try {
-            int rowStart = hssfSheet.getFirstRowNum();
-            int rowEnd = // hssfSheet.getLastRowNum();
-            process.getStart(process.getSource());
-            for (int i = rowStart; i <= rowEnd; i++) {
-                HSSFRow row = hssfSheet.getRow(i);
-                if (null == row) continue;
-                int cellStart = row.getFirstCellNum();
-                int cellEnd = row.getLastCellNum();
-
-                for (int k = cellStart; k <= cellEnd; k++) {
-                    HSSFCell cell = row.getCell(k);
-                    if (null == cell) continue;
-                    //System.out.print("" + k + "  ");
-                    //System.out.print("type:"+cell.getCellType());
-
-                    switch (cell.getCellType()) {
-                        case HSSFCell.CELL_TYPE_NUMERIC: // 数字
-                            if(HSSFDateUtil.isCellDateFormatted(cell)) { // 日期
-                                SimpleDateFormat format = new SimpleDateFormat(Excel.DATE_FORMAT);
-                                System.out.print(format.format(cell.getDateCellValue())
-                                        + "   ");
-                            } else
-                                System.out.print(cell.getNumericCellValue()
-                                    + "   ");
-                            break;
-                        case HSSFCell.CELL_TYPE_STRING: // 字符串
-                            System.out.print(cell.getStringCellValue()
-                                    + "   ");
-                            break;
-                        case HSSFCell.CELL_TYPE_BOOLEAN: // Boolean
-                            System.out.println(cell.getBooleanCellValue()
-                                    + "   ");
-                            break;
-                        case HSSFCell.CELL_TYPE_FORMULA: // 公式
-                            System.out.print(cell.getCellFormula() + "   ");
-                            break;
-                        case HSSFCell.CELL_TYPE_BLANK: // 空值
-                            System.out.println(" ");
-                            break;
-                        case HSSFCell.CELL_TYPE_ERROR: // 故障
-                            System.out.println(" ");
-                            break;
-                        default:
-                            System.out.print("未知类型   ");
-                            break;
-                    }
-
-                }
-                System.out.print("\n");
-            }
-        } catch (Exception e) {
-            return STATUS_ERROR;
-        }
-        return null;
-    }
 }

@@ -3,6 +3,8 @@ package work.Excel.impl;
 import org.junit.Test;
 import work.Excel.api.Excel;
 import work.Excel.api.Function;
+import work.Excel.bean.TestBean;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,52 +17,23 @@ public class ExcelUtil extends AbsFunction {
 
     @Test
     public void testImport() {
-        Excel source = createExcel();
-        // 业务信息
-        Map infoMap = new HashMap<>();
-        infoMap.put("startNum", "2");
-        source.setInfo(infoMap);
-
+        // TODO 测试通过
+        Excel source = getExcel();
         // 形似ajax
-        importExcel(source, new AbsFunction() {
-            @Override
-            public int getStart(Excel source) {
-                Map info = source.getInfo();
-                return Integer.valueOf((String)info.get("startNum"));
-            }
-
-            @Override
-            public Excel getSource() {
-                return source;
-            }
-
-            /*
-            *
-            * Map a bean
-            * [attr : col] abc.properties
-             * name : colName
-             * id   : colId
-             * ...
-             *
-             * key : id + name
-             * if a row contains a key, then serialize it. else log this as a bad record by row number.
-             *
-             * save a bean
-             * bean.setPro()
-             * bean.save()
-             *
-            * */
-        });
+        importExcel(source, () -> saveBeans());
     }
 
-    /**
-     * 单例
-     * @return
-     */
     @Override
-    public Excel createExcel() {
+    public Excel getExcel() {
         Excel source = new ExcelFile();
         source.setName("src/work/test/resources/1.xls");
+        // 业务信息
+        Map infoMap = new HashMap<>();
+        infoMap.put(source.START_NUM_STR, "1");
+        infoMap.put(source.TITLE_NUM_STR, "1");
+        source.setInfo(infoMap);
+        //
+        setSource(source);
         return source;
     }
 

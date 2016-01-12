@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d42773-39d6-4bd3-b802-4b2239f919bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/work/Excel/bean/TestBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/work/Excel/api/testbean.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/6th_WS/work/Excel/impl/AbsFunction.class" afterPath="$PROJECT_DIR$/out/production/6th_WS/work/Excel/impl/AbsFunction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/6th_WS/work/Excel/api/ExcelAPI.class" afterPath="$PROJECT_DIR$/out/production/6th_WS/work/Excel/api/ExcelAPI.class" />
-      <change type="MODIFICATION" beforePath="E:\Workspaces\websocketLab\out\production\6th_WS\work\Excel\impl\ExcelUtil$1.class" afterPath="E:\Workspaces\websocketLab\out\production\6th_WS\work\Excel\impl\ExcelUtil$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/6th_WS/work/Excel/impl/ExcelUtil.class" afterPath="$PROJECT_DIR$/out/production/6th_WS/work/Excel/impl/ExcelUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/impl/AbsExcelFile.java" afterPath="$PROJECT_DIR$/src/work/Excel/impl/AbsExcelFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/impl/AbsFunction.java" afterPath="$PROJECT_DIR$/src/work/Excel/impl/AbsFunction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/api/Excel.java" afterPath="$PROJECT_DIR$/src/work/Excel/api/Excel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/api/ExcelAPI.java" afterPath="$PROJECT_DIR$/src/work/Excel/api/ExcelAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/impl/ExcelFile.java" afterPath="$PROJECT_DIR$/src/work/Excel/impl/ExcelFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/impl/ExcelUtil.java" afterPath="$PROJECT_DIR$/src/work/Excel/impl/ExcelUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/Excel/api/Function.java" afterPath="$PROJECT_DIR$/src/work/Excel/api/Function.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="17d42773-39d6-4bd3-b802-4b2239f919bf" name="Default" comment="" />
     <ignored path="6th_WS.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -89,8 +74,8 @@
       <file leaf-file-name="AbsFunction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/work/Excel/impl/AbsFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40140846">
-              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.11443662">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -951,12 +936,12 @@
       <workItem from="1452496716112" duration="13071000" />
       <workItem from="1452513607237" duration="2194000" />
       <workItem from="1452515882124" duration="100000" />
-      <workItem from="1452559062531" duration="17407000" />
+      <workItem from="1452559062531" duration="17576000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134576000" />
+    <option name="totallyTimeSpent" value="134745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="0" width="1294" height="728" extended-state="0" />
@@ -1448,8 +1433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/work/Excel/impl/AbsFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40140846">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.11443662">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -4,6 +4,7 @@ import work.Excel.api.Excel;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,6 +14,8 @@ import java.util.Map;
 public class ExcelFile extends AbsExcelFile {
 
 
+    /*** 数据集 */
+    private List data;
     /*** 版本 */
     private String version;
     /*** 后缀 */
@@ -23,6 +26,8 @@ public class ExcelFile extends AbsExcelFile {
     private String fileName;
     /*** 起始位置 */
     private String startNum;
+    /*** 标题位置 */
+    private String titleNum;
 
 
     public File getExcel() {
@@ -39,26 +44,27 @@ public class ExcelFile extends AbsExcelFile {
         return this.fileName;
     }
 
-//    @Override
-//    public void setInfo(Object info) {
-//        Map
-//    }
-//
-//    @Override
-//    public <T> int getInfo() {
-//        return 1;
-//    }
-
-
     @Override
     public Map getInfo() {
         Map infoMap = new HashMap<>();
-        infoMap.put("startNum", startNum);
+        infoMap.put(START_NUM_STR, startNum);
+        infoMap.put(TITLE_NUM_STR, titleNum);
         return infoMap;
     }
 
     @Override
     public void setInfo(Map info) {
-        this.startNum = (String)info.get("startNum");
+        this.startNum = (String)info.get(START_NUM_STR);
+        this.titleNum = (String)info.get(TITLE_NUM_STR);
+    }
+
+    @Override
+    public void setData(List data) {
+        this.data = data;
+    }
+
+    @Override
+    public List getData() {
+        return this.data;
     }
 }

@@ -25,10 +25,10 @@ public interface ExcelAPI {
     int STATUS_FAILED = -1;
 
     /**
-     * 创建Excel文件
+     * 获取Excel文件
      * @return
      */
-    Excel createExcel();
+    Excel getExcel();
 
     /**
      * 导入Excel文件

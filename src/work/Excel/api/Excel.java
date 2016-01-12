@@ -1,6 +1,7 @@
 package work.Excel.api;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,6 +12,8 @@ public interface Excel<T>  {
 
     String DEMO_FILE_PATH = "src/work/test/resources/3.xls";
     String DATE_FORMAT = "yyyy-MM-dd";
+    String START_NUM_STR = "startNum";
+    String TITLE_NUM_STR = "titleNum";
 
     /**********************
      * EXCEL数据结构 List<Map>
@@ -38,5 +41,8 @@ public interface Excel<T>  {
     Map getInfo();
 
     File getExcel();
+
+    List getData();
+    void setData(List data);
 
 }

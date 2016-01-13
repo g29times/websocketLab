@@ -96,5 +96,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="ali-oas" level="project" />
   </component>
 </module>

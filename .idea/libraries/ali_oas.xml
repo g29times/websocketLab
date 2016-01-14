@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="ali-oas">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/async-http-client-1.8.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aliyun-oas-0.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hamcrest-all-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-smart-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/littleproxy-1.0.0-beta8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-3.9.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/snakeyaml-1.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/async-http-client-1.8.12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

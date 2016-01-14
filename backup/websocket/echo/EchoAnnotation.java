@@ -25,7 +25,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 /**
- * The three annotated echo endpoints can be used to test with Autobahn and
+ * The three annotated echo endpoints can be used to test.txt with Autobahn and
  * the following command "wstest -m fuzzingclient -s servers.json". See the
  * Autobahn documentation for setup and general information.
  */

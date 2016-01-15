@@ -1,0 +1,209 @@
+技术白皮书
+
+API / 环境 / 工具
+https://app.yinxiang.com/Home.action#n=9cb32fc4-67a7-45c7-ad1f-d06dedd7c19a&ses=4&sh=2&sds=5&
+
+笔记 学习 BUG
+https://app.yinxiang.com/Home.action#n=5e331f18-182a-40a2-b452-36fb6bd94b62&ses=4&sh=2&sds=5&
+
+开源 项目实战
+https://app.yinxiang.com/Home.action#n=e80febd4-7f45-4fbc-b36a-00ffdb336e13&ses=4&sh=2&sds=5&
+
+博客 网站
+https://app.yinxiang.com/Home.action#n=97a3f080-5bd8-4100-bc1c-3405742d6924&ses=4&sh=2&sds=5&
+
+书籍
+https://app.yinxiang.com/Home.action#n=7d193e9f-0cf0-45f6-adc3-2fe2b124859f&ses=4&sh=2&sds=5&
+
+
+待归类
+http://www.cnblogs.com/kristain/articles/2033566.html
+http://blog.sina.com.cn/s/blog_4f925fc3010182zi.html
+
+http://www.kaistart.com/index/index.html
+http://docs.basho.com/riak/latest/dev/references/http/store-object/
+http://aliyun_portal_storage.oss.aliyuncs.com/oss_api/oss_javahtml/object.html
+http://www.52pojie.cn/portal.php
+http://lusongsong.com/reed/527.html
+http://bbs.epoolsoft.com/forum.php     http://www.xuetr.com/
+http://www.wooyun.org/
+http://ce.baidu.com/
+http://www.divcss5.com/
+http://www.cnblogs.com/ShadowLoki/p/3714018.html
+
+硬件
+http://www.elecfans.com/
+http://smarthome.qianjia.com/Channels/smarthome/technology/Solutions/p1.html
+http://www.shmaker.cn/product/smartProduct
+http://project.21csp.com.cn/C188/201409/6926.html
+http://www.ickey.cn/
+http://www.wrjjs.com/thread-1160-1-1.html
+
+http://git.oschina.net/
+http://runjs.cn/code
+http://ifeve.com/
+http://www.07net01.com/
+http://www.xgezhang.com/
+https://www.baidu.com/s?ie=UTF-8&wd=JProfiler
+https://disqus.com/
+http://www.cnblogs.com/findumars/p/3746878.html
+http://blog.csdn.net/feixiaoxing/article/details/7047856
+JMS http://developer.kaazing.com/documentation/jms/4.0/index.html
+http://group.jobbole.com/12263/?utm_source=blog.jobbole.com&utm_medium=sidebar-group-topic
+https://www.baidu.com/s?ie=UTF-8&wd=%E5%A4%9A%E7%BA%BF%E7%A8%8B%20%E6%97%A0%E9%94%81
+https://www.baidu.com/s?ie=UTF-8&wd=get%20thread%20dump
+http://blog.csdn.net/feixiaoxing/article/details/7047856
+
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+建议任务优先级
+大数据课程
+博客学习
+读书
+源码创作
+
+读书 (ABCD表示四周)
+前置导读书籍
+     冒号课堂
+     大话数据结构
+语言
+1 JAVA reflection 201509A-101510C
+2 THINKING IN JAVA / C programming language / Effective Java
+数据
+3 Algorithms
+4 Concrete Mathematics
+系统
+5 深入理解计算机系统
+6 JVM
+网络
+7 Computer Network TopDown / 图解TCP IP /  RESTful Web Services Cookbook V
+考试
+Leetcode
+
+推荐
+NodeJs入门书
+JAVA reflection
+七周系列
+数学系列
+网络
+IO
+系统
+
+短板：
+网络 数据结构 linux 算法 aha算法, algorithm, TCPIP
+集中核心竞争力
+http://www.zhihu.com/question/19796490
+http://www.ruanyifeng.com/blog/2015/09/career-advice.html
+
+学习计划
+JAVA
+https://www.coursera.org/specializations/java-programming
+ 
+数据
+http://www.dataguru.cn/my/lessons/learning/
+http://edu.dataguru.cn/
+ 
+http://mooc.guokr.com/post/604911/
+http://www.dataguru.cn/article-4696-1.html?union_site=banner
+http://www.dataguru.cn/article-6327-1.html
+http://edu.dataguru.cn/major-2.html
+http://f.dataguru.cn/thread-537083-1-1.html
+http://f.dataguru.cn/thread-544658-1-1.html
+
+http://tech.it168.com/a2014/0825/1660/000001660094.shtml
+https://www.udacity.com/courses/all
+https://www.coursera.org/specializations/jhudatascience?utm_medium=courseDescripTop
+https://www.coursera.org/specializations/biancheng-suanfa
+http://bbs.pinggu.org/forum.php?mod=viewthread&tid=3032848
+
+全栈开发者
+Programmer Competency Matrix
+https://app.yinxiang.com/Home.action#n=4efa28fd-d40e-4614-876e-6ac798288495&ses=1&sh=5&sds=5&x=web&
+
+http://www.stuq.org/subject/skill-map/
+http://www.oschina.net/translate/what-is-a-full-stack-developer
+http://www.zhihu.com/question/22420900
+http://www.nowamagic.net/librarys/veda/detail/2583
+
+本周学习内容 IO
+http://www.oschina.net/p/j2cache
+http://www.oschina.net/question/12_26514
+http://www.oschina.net/p/netty
+https://app.yinxiang.com/Home.action#n=861f5504-b6b7-4b8f-a1d1-d6f941468ab3&ses=4&sh=2&sds=5&
+思考 
+NIO redis node对于并发的处理思路
+下周 缓存 多线程
+Node + Redis
+ -----
+掌握四大编程武器
+反射(涉及编译) 回调(事件) 函数式 递归(闭包) 
+ref + node + java8 + js
+
+IO + NIO + TCPIP
+
+redis + sql
+
+OS + 编译 + 系统
+
+辨识力
+假网站？
+https://thepiratebay.ee/
+广告？
+http://zhidao.baidu.com/link?url=ZLJAHiFJyHbUqh94hNV6BZQwvsAbcnsCzOKR67WVNg2L9mg2FMu-949k2x494SQB1obfo3LVpieoD3Qo_uku_q
+匹配度？
+http://www.csdn.net/article/2012-07-10/2807222
+
+------------------------------------------------------------------------------------------------------------------------------
+
+职业发展目标
+职业规划
+http://hellojava.info/?p=395
+
+公司
+Ali
+ThoughtWorks
+http://zhidao.baidu.com/question/431569722585749804.html?qbl=relate_question_3&word=thought%20works&optimi=4
+Firefox
+
+面试和简历
+https://app.yinxiang.com/Home.action#n=d0b94337-e190-4b4f-a516-7c0884d116b0&ses=4&sh=2&sds=5&
+
+加分项
+scala
+hadoop spark
+mongodb redis
+ngnix
+大数据量、高并发
+互联网系统的性能优化、cache技术、分布式系统
+Redis，MongoDB 等开源NoSQL数据库
+熟悉HTTP协议细节、熟悉Nginx、Linux
+hadoop是分布式系统，mongodb是分布式数据库，可以整合
+Linux / MySQL / Nignx / Mongo / Redis 
+Node.js Git 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+术语表
+可伸缩性 - 更大的规模
+http://www.infoq.com/cn/news/2007/10/whatisscalability/
+
+扩展性 - 延迟和吞吐量
+http://www.jdon.com/scalable.html
+
+高可用性 - 数据一致性
+
+高性能 - 访问速度
+构建高性能Web站点
+
+大数据 - 
+
+脚本 - 脚本为一系列表达式构成以完成某个任务
+
+服务器端脚本语言和客户端脚本语言
+http://blog.163.com/the_springwater/blog/static/13718142220104623424397/
+
+
+
+

@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d42773-39d6-4bd3-b802-4b2239f919bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/work/OAS/TechBook.txt" />
-      <change type="DELETED" beforePath="E:\Workspaces\websocketLab\out\production\6th_WS\work\OAS\test.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\websocketLab\src\work\OAS\OAS_Java_SDK_0.2.2.zip" afterPath="" />
-      <change type="DELETED" beforePath="E:\Workspaces\websocketLab\src\work\OAS\test.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/6th_WS/work/OAS/Configuration.class" afterPath="$PROJECT_DIR$/out/production/6th_WS/work/OAS/Configuration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/6th_WS/work/OAS/FileTest.class" afterPath="$PROJECT_DIR$/out/production/6th_WS/work/OAS/FileTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/6th_WS/work/OAS/TestCreateVault.class" afterPath="$PROJECT_DIR$/out/production/6th_WS/work/OAS/TestCreateVault.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/OAS/Configuration.java" afterPath="$PROJECT_DIR$/src/work/OAS/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/OAS/FileTest.java" afterPath="$PROJECT_DIR$/src/work/OAS/FileTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/work/OAS/TestCreateVault.java" afterPath="$PROJECT_DIR$/src/work/OAS/TestCreateVault.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="17d42773-39d6-4bd3-b802-4b2239f919bf" name="Default" comment="" />
     <ignored path="6th_WS.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -945,12 +933,12 @@
       <workItem from="1452559062531" duration="17576000" />
       <workItem from="1452645795957" duration="8181000" />
       <workItem from="1452732625560" duration="3747000" />
-      <workItem from="1452819085048" duration="99000" />
+      <workItem from="1452819085048" duration="385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146772000" />
+    <option name="totallyTimeSpent" value="147058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="139" y="0" width="1227" height="728" extended-state="0" />

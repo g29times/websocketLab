@@ -11,8 +11,13 @@ public class FileTest {
 
     @Test
     public void testFile() {
-        File file = new File("src/work/OAS/test.txt");
+        File file = new File("src/work/OAS/TechBook.txt");
         System.out.println(file.exists());
+    }
+
+    public void deleteFile() {
+        File file = new File("src/work/OAS/dest.txt");
+        file.delete();
     }
 
 }

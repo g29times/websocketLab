@@ -82,7 +82,6 @@ public class TestCreateVault implements Configuration {
     }
 
     /** 建库 */
-    @Test
     public void createVault() {
         // 发送创建vault请求
         // 创建Vault的名称，用CreateVaultRequest来指定
@@ -101,8 +100,7 @@ public class TestCreateVault implements Configuration {
         }
     }
     /** 普通文件同步上传 建议查询采用同步方式 上传下载采用异步方式 */
-    @Test
-    public void TestArchiveManager() {
+    public void testArchiveManager() {
         ArchiveManager archiveManager = OASFactory.archiveManagerFactory(aliyunOASClient).withNumConcurrence(5).withMaxRetryTimePerRequest(3);
 
         File file = new File(Test_file);
@@ -121,8 +119,7 @@ public class TestCreateVault implements Configuration {
 
     }
     /** 大文件上传 */
-    @Test
-    public void TestMultipartUpload() {
+    public void testMultipartUpload() {
         ArchiveManager archiveManager = OASFactory.archiveManagerFactory(aliyunOASClient).withNumConcurrence(5).withMaxRetryTimePerRequest(3);
 
         File file = new File(Test_Bigfile);
@@ -135,22 +132,30 @@ public class TestCreateVault implements Configuration {
         UploadResult uploadResult = archiveManager.uploadWithUploadId(VaultName, file, uploadId);
         System.out.println("Archive ID=" + uploadResult.getArchiveId());
     }
-    /** 下载
-     * 1 用户 通过接口提交相应类型的Job；
-     * 2 OAS 接收到Job并安排其执行；
+    /** 下载 <br/>
+     * 1 用户 通过接口提交相应类型的Job；<br/>
+     * 2 OAS 接收到Job并安排其执行；<br/>
      * 3 用户 将已完成Job的输出内容下载到本地。
      */
-    @Test
-    public void TestDownload() {
+    public void testDownload() {
         ArchiveManager archiveManager = OASFactory.archiveManagerFactory(aliyunOASClient).withNumConcurrence(5).withMaxRetryTimePerRequest(3);
 
         // 提交提档任务
-        JobMonitor jobMonitor = archiveManager.downloadAsync(VaultName, Test_fileId);
+        JobMonitor jobMonitor = archiveManager.downloadAsync(VaultName, TechBook_fileId);
         // 执行Inventory
         archiveManager.downloadInventoryAsync(VaultName);
         // 下载Job输出
         archiveManager.downloadJobOutput(VaultName, jobMonitor.getJobId(),
                 new File(Test_Destfile));
 
+    }
+
+
+    @Test
+    public void test() {
+//        createVault();
+//        testArchiveManager();
+//        testMultipartUpload();
+        testDownload();
     }
 }

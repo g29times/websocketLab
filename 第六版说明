@@ -1,4 +1,9 @@
-第六版解决核心问题
+第六版
+说明
+    基于tomcat容器的servlet
+    基于websocket的网络通讯
+
+解决核心问题
 1 脱离maven 原始部署
 2 web目录 out目录 arti prod目录关系
     1 编译本地java文件 生成prod目录

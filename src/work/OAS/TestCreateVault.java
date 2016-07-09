@@ -5,6 +5,12 @@ package work.OAS;
 
 import com.aliyun.oas.ease.ArchiveManager;
 import com.aliyun.oas.ease.monitor.JobMonitor;
+import com.aliyun.oas.model.descriptor.JobDescriptor;
+import com.aliyun.oas.model.descriptor.VaultDescriptor;
+import com.aliyun.oas.model.request.ListJobsRequest;
+import com.aliyun.oas.model.request.ListVaultsRequest;
+import com.aliyun.oas.model.result.ListJobsResult;
+import com.aliyun.oas.model.result.ListVaultsResult;
 import com.aliyun.oas.model.result.UploadResult;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -21,6 +27,7 @@ import com.aliyun.oas.model.request.CreateVaultRequest;
 import com.aliyun.oas.model.result.CreateVaultResult;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * 创建vault demo程序
@@ -99,6 +106,7 @@ public class TestCreateVault implements Configuration {
             logger.error("OASServerException Occured:", e);
         }
     }
+
     /** 普通文件同步上传 建议查询采用同步方式 上传下载采用异步方式 */
     public void testArchiveManager() {
         ArchiveManager archiveManager = OASFactory.archiveManagerFactory(aliyunOASClient).withNumConcurrence(5).withMaxRetryTimePerRequest(3);
@@ -118,6 +126,7 @@ public class TestCreateVault implements Configuration {
         }
 
     }
+
     /** 大文件上传 */
     public void testMultipartUpload() {
         ArchiveManager archiveManager = OASFactory.archiveManagerFactory(aliyunOASClient).withNumConcurrence(5).withMaxRetryTimePerRequest(3);
@@ -132,30 +141,72 @@ public class TestCreateVault implements Configuration {
         UploadResult uploadResult = archiveManager.uploadWithUploadId(VaultName, file, uploadId);
         System.out.println("Archive ID=" + uploadResult.getArchiveId());
     }
+
     /** 下载 <br/>
      * 1 用户 通过接口提交相应类型的Job；<br/>
      * 2 OAS 接收到Job并安排其执行；<br/>
      * 3 用户 将已完成Job的输出内容下载到本地。
      */
-    public void testDownload() {
+    public void testDownload(String id) {
         ArchiveManager archiveManager = OASFactory.archiveManagerFactory(aliyunOASClient).withNumConcurrence(5).withMaxRetryTimePerRequest(3);
 
         // 提交提档任务
-        JobMonitor jobMonitor = archiveManager.downloadAsync(VaultName, TechBook_fileId);
+        JobMonitor jobMonitor = archiveManager.downloadAsync(VaultName, id);
         // 执行Inventory
         archiveManager.downloadInventoryAsync(VaultName);
         // 下载Job输出
         archiveManager.downloadJobOutput(VaultName, jobMonitor.getJobId(),
-                new File(Test_Destfile));
-
+                new File("src/work/OAS/download/" + id));
     }
 
+    /**
+     * 历史记录列表
+     *
+     */
+    public void lookHistory() {
+        // 1 获取库信息
+        ListVaultsRequest vaultsRequest = new ListVaultsRequest();
+        vaultsRequest.withLimit(10);
+        vaultsRequest.withMarker("");
+        ListVaultsResult list =
+                aliyunOASClient.listVaults(vaultsRequest);
+        System.out.println(
+                "MARKER:" + list.getMarker());
+        String vaultId = list.getVaultList().iterator().next().getVaultId();
+        System.out.println(
+                "VAULT ID: " + vaultId);
+        System.out.println();
+
+        // 2 通过库信息获取job历史信息
+        ListJobsRequest jobsRequest = new ListJobsRequest();
+        // 关键
+        jobsRequest.withLimit(100);
+        jobsRequest.withMarker("");
+        jobsRequest.setVaultId(vaultId);
+        ListJobsResult jobs = aliyunOASClient.listJobs(jobsRequest);
+        System.out.println(
+                "MARKER:" + jobs.getMarker());
+        List<JobDescriptor> jobList = jobs.getJobList();
+        System.out.println("JOBS SIZE: " + jobList.size());
+        System.out.println();
+
+        for(JobDescriptor job : jobList) {
+            System.out.println("@@@CreationDate: " + job.getCreationDate());
+            System.out.println("JobStatus: " + job.getJobStatus());
+            System.out.println("ArchiveId: " + job.getArchiveId());
+            System.out.println("ArchiveSize: " + job.getArchiveSize());
+        }
+    }
 
     @Test
     public void test() {
+//      OASDescriptor OASResult OASRequest 低级接口
+
 //        createVault();
 //        testArchiveManager();
 //        testMultipartUpload();
-        testDownload();
+        lookHistory();
+//        testDownload("6E356DC34311DAD17795E169410475DA807838BB972B4280B51FD029291F214F5FE751E1E9BDD8B6A1D53ABA72D6306AC6A4A5227FE29C11F2F65E9DE33E9323");
+//
     }
 }
